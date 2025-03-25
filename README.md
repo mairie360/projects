@@ -1,6 +1,6 @@
-# projects-web
+# projects
 
-The web service for Projects.
+The Projects's module.
 
 ## Getting Started
 

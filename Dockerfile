@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
-WORKDIR /usr/src/projects-web
+WORKDIR /usr/src/projects
 
 # Copy the package files
 COPY package.json package-lock.json ./
@@ -25,10 +25,10 @@ COPY . .
 RUN npm run build
 
 # Create non-root user and group
-RUN groupadd --system projects-web && useradd --no-log-init --system -g projects-web projects-web
+RUN groupadd --system projects && useradd --no-log-init --system -g projects projects
 
 # Set permissions
-USER projects-web
+USER projects
 
 # Set entrypoint
 ENTRYPOINT ["/usr/local/bin/npm"]
